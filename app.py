@@ -23,11 +23,15 @@ class Thing(db.Model):
         # return '<Thing %r>' % self.name
 
 @app.route("/")
-def hello():
+def index():
   #things = Thing.query.all()
   # return render_template('index.html', var='Das ist der erste Test', things=things)
   return render_template('index.html', var='Das ist der erste Test')
-  
+
+@app.route("/leaderboard.html")
+def leaderboard():
+	return render_template('leaderboard.html')
+
 @app.route('/dist/<path:path>')
 def send_path(path):
    return send_from_directory('dist', path)
