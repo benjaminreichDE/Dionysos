@@ -30,11 +30,11 @@ def hello():
   
 @app.route('/dist/<path:path>')
 def send_path(path):
-   return send_from_directory('/dist', path)
+   return send_from_directory('dist', path)
 	
 @app.route('/assets/<path:path>')
 def send_assets(path):
-   return send_from_directory('/assets', path)
+   return send_from_directory('assets', path)
 
 if __name__ == "__main__":
   app.run(host=os.getenv('IP', '0.0.0.0'), port=os.getenv('PORT', 8080), debug=True)
