@@ -18,14 +18,15 @@ class Thing(db.Model):
     def __init__(self, name, description):
         self.name = name
         self.description = description
-aber 
-    def __repr__(self):
-        return '<Thing %r>' % self.name
+# aber 
+    # def __repr__(self):
+        # return '<Thing %r>' % self.name
 
 @app.route("/")
 def hello():
   #things = Thing.query.all()
-  return render_template('index.html', var='Das ist der erste Test', things=things)
+  # return render_template('index.html', var='Das ist der erste Test', things=things)
+  return render_template('index.html', var='Das ist der erste Test')
   
 @app.route('/dist/<path:path>')
 def send_assets(path):
