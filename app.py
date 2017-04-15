@@ -35,7 +35,17 @@ def login_required(test):
             flash('You need to login first.')
             return redirect(url_for('login'))
     return wrap
+
+def admin_required(test):
+    @wraps(test)
+    def wrap(*args, **kwargs):
+        if 'admin' in session and 'logged_in' in session:
+            return test(*args, **kwargs)
+        else:
+            flash('You need admin privileges to view this page.')
+            return redirect(url_for('/'))
 '''
+
 #----------------------------------------------------------------------------#
 # Controllers.
 #----------------------------------------------------------------------------#
@@ -67,6 +77,22 @@ def register():
 def forgot():
     form = ForgotForm(request.form)
     return render_template('forms/forgot.html', form=form)
+
+
+@app.route('/transactions')
+def show_transactions():
+    return render_template('pages/transactions.html', transactions=[{
+        "id": 42,
+        "username": "Max Mustermann",
+        "time": "5 Minutes ago",
+        "description": "Hello World"
+    },
+    {
+        "id": 1337,
+        "username": "John Smitz",
+        "time": "10 Minutes ago",
+        "description": "Here come dat boi"
+    }])
 
 # Error handlers.
 
