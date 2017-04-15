@@ -59,7 +59,7 @@ def home():
 @app.route('/about')
 def about():
     return render_template('pages/placeholder.about.html')
-	
+
 @app.route('/leaderboard')
 def leaderboard():
      data = [{
@@ -94,7 +94,7 @@ def forgot():
 
 
 @app.route('/transactions')
-def show_transactions():
+def transactions():
     return render_template('pages/transactions.html', transactions=[{
         "id": 42,
         "username": "Max Mustermann",

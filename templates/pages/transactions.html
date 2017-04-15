@@ -1,0 +1,29 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Transaktionen{% endblock %}
+{% block content %}
+	<div class="page-header">
+		<h1>Transaktionen</h1>
+	</div>
+{% if transactions %}
+	<table class="table">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nutzername</th>
+				<th>Uhrzeit</th>
+				<th>Notiz</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for transaction in transactions %}
+			<tr>
+				<td>{{ transaction.id }}</td>
+				<td>{{ transaction.username }}</td>
+				<td>{{ transaction.time }}</td>
+				<td>{{ transaction.description }}</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+{% endif %}
+{% endblock %}
