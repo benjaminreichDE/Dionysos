@@ -59,6 +59,20 @@ def home():
 @app.route('/about')
 def about():
     return render_template('pages/placeholder.about.html')
+	
+@app.route('/leaderboard')
+def leaderboard():
+     data = [{
+         "name": "bootstrap-table",
+         "amount": "10"
+         },  {
+         "name": "multiple-select",
+         "amount": "288"
+         }, {
+         "name": "Testing",
+         "amount": "340"
+        }]
+     return render_template('pages/leaderboard.html', data = data)
 
 
 @app.route('/login')
