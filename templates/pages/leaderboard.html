@@ -7,18 +7,15 @@
 </div>
 <script type='text/javascript'>//<![CDATA[
 $(window).load(function(){
-var data = {{data|tojson}};
-$(function() {
-  $('#table').bootstrapTable({
-    data: data
-  });
-});
-});//]]> 
+	var data = {{data|tojson}};
+	$(function() {
+		$('#table').bootstrapTable({
+			data: data
+		});
+	});
+});//]]>
 </script>
 
-</head>
-<body>
-  
 <div class="container" style="padding: 10px; ">
   <br>
   <table id="table" data-toggle="true" data-show-columns="true" data-pagination="true" data-height="500">
@@ -30,6 +27,5 @@ $(function() {
     </thead>
   </table>
 </div>
-
 
 {% endblock %}
