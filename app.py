@@ -69,25 +69,11 @@ def about():
 
 @app.route('/leaderboard')
 def leaderboard():
-    data = [{
-         "name": "bootstrap-table",
-         "amount": "10"
-         },  {
-         "name": "multiple-select",
-         "amount": "288"
-         }, {
-         "name": "Testing",
-         "amount": "340"
-        }]
-    # for usser models.User.querry.all():
-    # data = user.transactions.
-
-    # def map_user(user):
-    #     sum = reduce(lambda x, y: x + y, map(lambda t: t.amount, user.transactions), 0)
-    #     user.transaction_amount = sum
-    #     return user
-    #
-    # data = list(map(map_user, models.User.query.all()))
+    def map_user(user):
+        sum = reduce(lambda x, y: x + y, map(lambda t: t.amount, user.transactions), 0)
+        return {'name': user.name, 'amount': sum }
+    
+    data = list(map(map_user, models.User.query.all()))
     return render_template('pages/leaderboard.html', data=data)
 
 
