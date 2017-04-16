@@ -78,6 +78,8 @@ def leaderboard():
          "name": "Testing",
          "amount": "340"
         }]
+     # for usser models.User.querry.all():
+         # data = user.transactions.
      return render_template('pages/leaderboard.html', data = data)
 
 

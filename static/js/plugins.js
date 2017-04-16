@@ -18,3 +18,25 @@ window.log = function(){
 
 // place any jQuery/helper plugins in here, instead of separate, slower script files.
 
+function loadSkillgraph() {
+$(".skillData").each(function(index, element) {
+    // element == this
+    var mydata = $(element).data();
+    var cnt = 0;
+
+    //recursive call with a time delay so user can see graph draw.
+    function go() {
+        if (cnt++ < mydata['percent']) {
+            setTimeout(go, 10);
+        }
+        $(element).css('width', cnt + '%');
+
+    }
+
+    go();
+
+});
+
+}
+
+loadSkillgraph();
