@@ -11,6 +11,7 @@
 				<th>ID</th>
 				<th>Nutzername</th>
 				<th>Uhrzeit</th>
+				<th>Betrag</th>
 				<th>Notiz</th>
 			</tr>
 		</thead>
@@ -20,6 +21,7 @@
 				<td>{{ transaction.id }}</td>
 				<td>{{ transaction.user.name }}</td>
 				<td>{{ transaction.time }}</td>
+				<td>{{ transaction.amount }}</td>
 				<td>{{ transaction.description }}</td>
 			</tr>
 		{% endfor %}
