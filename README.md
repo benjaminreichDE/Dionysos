@@ -1,5 +1,7 @@
-## Welcome
+# Dionysos
+[![Build Status](https://travis-ci.org/benjaminreichDE/Dionysos.svg?branch=master)](https://travis-ci.org/benjaminreichDE/Dionysos)
 
+## Welcome
 
 ### Quick Start
 
