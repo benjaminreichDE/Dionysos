@@ -1,5 +1,8 @@
 # Dionysos
 [![Build Status](https://travis-ci.org/benjaminreichDE/Dionysos.svg?branch=master)](https://travis-ci.org/benjaminreichDE/Dionysos)
+[![BCH compliance](https://bettercodehub.com/edge/badge/benjaminreichDE/Dionysos)](https://bettercodehub.com/)
+[![Updates](https://pyup.io/repos/github/benjaminreichDE/Dionysos/shield.svg)](https://pyup.io/repos/github/benjaminreichDE/Dionysos/)
+[![Python 3](https://pyup.io/repos/github/benjaminreichDE/Dionysos/python-3-shield.svg)](https://pyup.io/repos/github/benjaminreichDE/Dionysos/)
 
 ## Welcome
 
