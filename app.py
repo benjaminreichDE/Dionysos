@@ -7,6 +7,9 @@ import logging
 from logging import Formatter, FileHandler
 from forms import *
 import os
+from sqlalchemy import create_engine
+from sqlalchemy.orm import scoped_session, sessionmaker
+import models
 
 #----------------------------------------------------------------------------#
 # App Config.
@@ -15,7 +18,15 @@ import os
 app = Flask(__name__)
 app.config.from_object('config')
 
-import models
+engine = create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
+session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=engine))
+models.Base.query = session.query_property()
+models.Base.metadata.create_all(engine)
+
+# transaction = models.Transaction(models.User.query.first(), 'Hello World')
+# session.add(transaction)
+# session.commit()
+
 
 # Automatically tear down SQLAlchemy.
 '''

@@ -18,12 +18,14 @@
 		{% for transaction in transactions %}
 			<tr>
 				<td>{{ transaction.id }}</td>
-				<td>{{ transaction.username }}</td>
+				<td>{{ transaction.user.name }}</td>
 				<td>{{ transaction.time }}</td>
 				<td>{{ transaction.description }}</td>
 			</tr>
 		{% endfor %}
 		</tbody>
 	</table>
+{% else %}
+	<h3>Derzeit keine Transaktionen verfügbar.</h3>
 {% endif %}
 {% endblock %}
