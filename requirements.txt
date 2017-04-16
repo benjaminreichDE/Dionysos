@@ -7,7 +7,7 @@ MarkupSafe==1.0
 SQLAlchemy==1.1.9
 WTForms==2.1
 Werkzeug==0.12.1
-coverage==3.7.1
+coverage==4.3.4
 ecdsa==0.10
 gunicorn==19.3.0
 itsdangerous==0.23
