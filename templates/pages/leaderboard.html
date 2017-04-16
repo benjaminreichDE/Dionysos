@@ -17,22 +17,30 @@
 			});
 		});
 		var ctx = $('#chart_canvas');
+		ctx.attr('height', 50);
 		var chart = new Chart(ctx, {
 			type: 'horizontalBar',
 			data: {
 				labels: data.map(function (e) { return e.name }),
 				datasets: [{
-					label: 'apples',
+					label: 'Eingezahlter Betrag',
 					data: data.map(function (e) { return e.amount }),
 					backgroundColor: "rgba(60, 120, 200, 1)"
 				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						barThickness : 30
+					}]
+				}
 			}
 		});
 	});//]]>
 	</script>
 
 	<div class="container">
-		<canvas id="chart_canvas" width="1024" height="400">
+		<canvas id="chart_canvas">
 
 		</canvas>
 		<br>
