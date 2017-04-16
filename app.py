@@ -95,7 +95,7 @@ def forgot():
 
 @app.route('/transactions')
 def transactions():
-    transactions = Transaction.query.order_by(Transaction.timestamp.desc())
+    transactions = models.Transaction.query.order_by(models.Transaction.timestamp.desc())
     return render_template('pages/transactions.html', transactions=transactions)
 
 # Error handlers.
