@@ -4,7 +4,7 @@
 	<div class="page-header">
 		<h1>Transaktionen</h1>
 	</div>
-{% if transactions %}
+{% if transactions.count() > 0 %}
 	<table class="table">
 		<thead>
 			<tr>

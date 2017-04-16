@@ -42,6 +42,10 @@ class User(Base):
         user = User.query.filter_by(username=username).first()
         return bcrypt.checkpw(password, user.password)
 
+    @property
+    def transactions(self):
+        return Transaction.query.filter_by(user_id=self.id)
+
     def __repr__(self):
         return "<User (name: {0}, email: {1})>".format(self.name, self.email)
 
