@@ -1,6 +1,8 @@
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
 from sqlalchemy import *
+import pytz
+import tzlocal
 import bcrypt
 
 # from sqlalchemy import Column, Integer, String
@@ -71,7 +73,8 @@ class Transaction(Base):
 
     @property
     def time(self):
-        return self.timestamp.strftime("%H:%M:%S, %d. %b %Y")
+        to = tzlocal.get_localzone()
+        return self.timestamp.replace(tzinfo=pytz.utc).astimezone(to).strftime("%H:%M:%S, %d. %b. %Y")
 
     def __repr__(self):
         return '<Transaction (id: {0}, user: {1}, time: {2}, description: {3})>'.format(self.id, self.username, self.time, self.description)
