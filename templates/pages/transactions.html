@@ -4,11 +4,15 @@
 	<div class="page-header">
 		<h1>Transaktionen</h1>
 	</div>
-	
-	<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.jss"></script>
-	<script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.jss"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css">
-	
+
+{#	<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.jss"></script>#}
+{#	<script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.jss"></script>#}
+{#	<script src="https://cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.min.js"></script>#}
+{#	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.2/js/jquery.dataTables.js"></script>#}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+	<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script>
+
+
 	<script type='text/javascript'>
 	$(document).ready(function() {
 		$('#transactionstable').DataTable();
@@ -24,7 +28,7 @@
 				<th>Betrag</th>
 				<th>Notiz</th>
 			</tr>
-		</thead>		
+		</thead>
 		<tfoot>
 			<tr>
 				<th>ID</th>
