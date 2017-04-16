@@ -23,11 +23,6 @@ session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=en
 models.Base.query = session.query_property()
 models.Base.metadata.create_all(engine)
 
-# transaction = models.Transaction(models.User.query.first(), 'Hello World')
-# session.add(transaction)
-# session.commit()
-
-
 # Automatically tear down SQLAlchemy.
 '''
 @app.teardown_request
