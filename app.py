@@ -3,7 +3,6 @@
 #----------------------------------------------------------------------------#
 
 from flask import Flask, render_template, request
-from flask.ext.sqlalchemy import SQLAlchemy
 import logging
 from logging import Formatter, FileHandler
 from forms import *
@@ -15,7 +14,8 @@ import os
 
 app = Flask(__name__)
 app.config.from_object('config')
-db = SQLAlchemy(app)
+
+import models
 
 # Automatically tear down SQLAlchemy.
 '''
@@ -95,18 +95,8 @@ def forgot():
 
 @app.route('/transactions')
 def transactions():
-    return render_template('pages/transactions.html', transactions=[{
-        "id": 42,
-        "username": "Max Mustermann",
-        "time": "5 Minutes ago",
-        "description": "Hello World"
-    },
-    {
-        "id": 1337,
-        "username": "John Smitz",
-        "time": "10 Minutes ago",
-        "description": "Here come dat boi"
-    }])
+    transactions = Transaction.query.order_by(Transaction.timestamp.desc())
+    return render_template('pages/transactions.html', transactions=transactions)
 
 # Error handlers.
 
