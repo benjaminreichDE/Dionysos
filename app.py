@@ -72,8 +72,8 @@ def leaderboard():
     def map_user(user):
         sum = reduce(lambda x, y: x + y, map(lambda t: t.amount, user.transactions), 0)
         return {'name': user.name, 'amount': sum }
-    
-    data = list(map(map_user, models.User.query.all()))
+
+    data = list(reversed(sorted(map(map_user, models.User.query.all()), key=lambda el: el['amount'])))
     return render_template('pages/leaderboard.html', data=data)
 
 
