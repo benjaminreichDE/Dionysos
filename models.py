@@ -28,7 +28,6 @@ class User(Base):
         self.name = name
         self.password = bcrypt.hashpw(password.encode('utf8'), bcrypt.gensalt())
         self.is_admin = is_admin
-        # self.id = 0
 
     @staticmethod
     def verify(username, password):
@@ -44,7 +43,7 @@ class User(Base):
 
     @property
     def transactions(self):
-        return Transaction.query.filter_by(user_id=self.id)
+        return Transaction.query.filter_by(user_id=self.id).all()
 
     def __repr__(self):
         return "<User (name: {0}, email: {1})>".format(self.name, self.email)
@@ -64,7 +63,6 @@ class Transaction(Base):
         self.user_id = user.id
         self.timestamp = datetime.utcnow()
         self.amount = amount
-        # self.id = 0
 
     @property
     def user(self):
