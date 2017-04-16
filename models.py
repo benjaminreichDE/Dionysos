@@ -28,7 +28,7 @@ class User(Base):
         self.name = name
         self.password = bcrypt.hashpw(password.encode('utf8'), bcrypt.gensalt())
         self.is_admin = is_admin
-        self.id = 0
+        # self.id = 0
 
     @staticmethod
     def verify(username, password):
@@ -55,14 +55,16 @@ class Transaction(Base):
 
     id = Column(Integer, primary_key=True)
     timestamp = Column(DateTime)
+    amount = Column(Integer)
     user_id = Column(Integer, ForeignKey('Users.id'), nullable=False)
     description = Column(Text(length=200), nullable=True)
 
-    def __init__(self, user, description):
+    def __init__(self, amount, user, description):
         self.description = description
         self.user_id = user.id
         self.timestamp = datetime.utcnow()
-        self.id = 0
+        self.amount = amount
+        # self.id = 0
 
     @property
     def user(self):
