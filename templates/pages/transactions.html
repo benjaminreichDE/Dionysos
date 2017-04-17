@@ -1,25 +1,16 @@
 {% extends 'layouts/main.html' %}
 {% block title %}Transaktionen{% endblock %}
-{% block content %}
+{% block content %}	
+	
 	<div class="page-header">
 		<h1>Transaktionen</h1>
 	</div>
-
-{#	<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.jss"></script>#}
-{#	<script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.jss"></script>#}
-{#	<script src="https://cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.min.js"></script>#}
-{#	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.2/js/jquery.dataTables.js"></script>#}
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
-	<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script>
-
-
-	<script type='text/javascript'>
-	$(document).ready(function() {
-		$('#transactionstable').DataTable();
-    } );
-	</script>
 {% if transactions|length > 0 %}
-	<table id="transactionstable" class="table table-striped" cellspacing="0" width="100%">
+	<table id="transactions"
+			data-toggle="table"
+			data-pagination="true"
+			data-page-list="[5, 10, 20, 50, 100, 200]"
+            data-search="true">
 		<thead>
 			<tr>
 				<th>ID</th>
@@ -29,15 +20,6 @@
 				<th>Notiz</th>
 			</tr>
 		</thead>
-		<tfoot>
-			<tr>
-				<th>ID</th>
-				<th>Nutzername</th>
-				<th>Uhrzeit</th>
-				<th>Betrag</th>
-				<th>Notiz</th>
-			</tr>
-		</tfoot>
 		<tbody>
 		{% for transaction in transactions %}
 			<tr>
@@ -50,6 +32,7 @@
 		{% endfor %}
 		</tbody>
 	</table>
+	<table id="table"></table>
 {% else %}
 	<h3>Derzeit keine Transaktionen verfügbar.</h3>
 {% endif %}
