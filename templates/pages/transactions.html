@@ -9,15 +9,18 @@
 	<table id="transactions"
 			data-toggle="table"
 			data-pagination="true"
+			data-sort-name="ID"
+			data-sortable="true"
+			data-sort-order="desc">
 			data-page-list="[5, 10, 20, 50, 100, 200]"
             data-search="true">
 		<thead>
 			<tr>
-				<th>ID</th>
-				<th>Nutzername</th>
-				<th>Uhrzeit</th>
-				<th>Betrag</th>
-				<th>Notiz</th>
+				<th data-sortable="true">ID</th>
+				<th data-sortable="true">Nutzername</th>
+				<th data-sortable="true">Uhrzeit</th>
+				<th data-sortable="true" data-sorter="amountSorter">Betrag</th>
+				<th data-sortable="true">Notiz</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -33,6 +36,15 @@
 		</tbody>
 	</table>
 	<table id="table"></table>
+	
+	<script>
+    function amountSorter(a, b) {
+        a = +a.substring(1); // remove $
+        b = +b.substring(1);
+        if (a > b) return 1;
+        if (a < b) return -1;
+        return 0;
+    }
 {% else %}
 	<h3>Derzeit keine Transaktionen verfügbar.</h3>
 {% endif %}
