@@ -4,6 +4,9 @@
 [![Updates](https://pyup.io/repos/github/benjaminreichDE/Dionysos/shield.svg)](https://pyup.io/repos/github/benjaminreichDE/Dionysos/)
 [![Python 3](https://pyup.io/repos/github/benjaminreichDE/Dionysos/python-3-shield.svg)](https://pyup.io/repos/github/benjaminreichDE/Dionysos/)
 
+
+Latest Release Downloads: [![Downloads](https://img.shields.io/github/downloads/benjaminreichDE/Dionysos/latest/total.svg)](https://github.com/benjaminreichDE/Dionysos/releases/latest)
+
 ## Welcome
 
 ### Quick Start
