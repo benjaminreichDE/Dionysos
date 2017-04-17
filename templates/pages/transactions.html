@@ -39,12 +39,11 @@
 	
 	<script>
     function amountSorter(a, b) {
-        a = +a.substring(1); // remove $
-        b = +b.substring(1);
         if (a > b) return 1;
         if (a < b) return -1;
         return 0;
     }
+	</script>
 {% else %}
 	<h3>Derzeit keine Transaktionen verfügbar.</h3>
 {% endif %}
