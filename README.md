@@ -8,6 +8,7 @@
 Latest Release Downloads: [![Downloads](https://img.shields.io/github/downloads/benjaminreichDE/Dionysos/latest/total.svg)](https://github.com/benjaminreichDE/Dionysos/releases/latest)
 
 ## Welcome
+Dionysos display and save the informations of a piggy bank with multiple users
 
 ### Quick Start
 
