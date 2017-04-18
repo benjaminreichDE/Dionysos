@@ -13,12 +13,11 @@ class RegisterForm(FlaskForm):
         'Email', validators=[DataRequired(), Length(min=6, max=40)]
     )
     password = PasswordField(
-        'Password', validators=[DataRequired(), Length(min=6, max=40)]
+        'Password', validators=[DataRequired(), Length(min=6, max=55)]
     )
     confirm = PasswordField(
         'Repeat Password',
-        [DataRequired(),
-        EqualTo('password', message='Passwords must match')]
+        [DataRequired(), EqualTo('password', message='Passwords must match')]
     )
 
 
