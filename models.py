@@ -15,7 +15,7 @@ Base = declarative_base()
 # Base.query = db.query_property()
 # Base = db.Model
 
-# Set your classes here.
+
 class User(Base):
     __tablename__ = 'Users'
 

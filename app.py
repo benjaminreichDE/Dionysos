@@ -5,11 +5,10 @@
 from flask import Flask, render_template, request
 import logging
 from logging import Formatter, FileHandler
-from forms import *
+import models
 import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
-import models
 from functools import reduce
 
 #----------------------------------------------------------------------------#
@@ -23,6 +22,8 @@ engine = create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
 session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=engine))
 models.Base.query = session.query_property()
 models.Base.metadata.create_all(engine)
+
+from forms import *
 
 # Automatically tear down SQLAlchemy.
 '''
@@ -99,6 +100,12 @@ def forgot():
 def transactions():
     transactions = models.Transaction.query.order_by(models.Transaction.timestamp.desc()).all()
     return render_template('pages/transactions.html', transactions=transactions)
+
+
+@app.route('/transactions/create')
+def create_transaction():
+    form = CreateTransaction(request.form)
+    return render_template('forms/create_transaction.html', form=form)
 
 # Error handlers.
 

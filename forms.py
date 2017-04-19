@@ -1,15 +1,17 @@
 from flask_wtf import Form
-from wtforms import TextField, PasswordField
-from wtforms.validators import DataRequired, EqualTo, Length
+from wtforms import StringField, PasswordField, SelectField, DecimalField
+from wtforms.validators import DataRequired, EqualTo, Length, NumberRange
+
+import models
 
 # Set your classes here.
 
 
 class RegisterForm(Form):
-    name = TextField(
+    name = StringField(
         'Username', validators=[DataRequired(), Length(min=6, max=25)]
     )
-    email = TextField(
+    email = StringField(
         'Email', validators=[DataRequired(), Length(min=6, max=40)]
     )
     password = PasswordField(
@@ -23,11 +25,31 @@ class RegisterForm(Form):
 
 
 class LoginForm(Form):
-    name = TextField('Username', [DataRequired()])
+    name = StringField('Username', [DataRequired()])
     password = PasswordField('Password', [DataRequired()])
 
 
 class ForgotForm(Form):
-    email = TextField(
+    email = StringField(
         'Email', validators=[DataRequired(), Length(min=6, max=40)]
+    )
+
+
+class CreateTransaction(Form):
+    user = SelectField(
+        'Username',
+        validators=[DataRequired()],
+        choices=map(lambda user: (user.name, user.name), models.User.query.all())
+    )
+    amount = DecimalField(
+        'Amount',
+        places=2,
+        validators=[
+            DataRequired(),
+            NumberRange(min=0)
+        ]
+    )
+    description = StringField(
+        'Description',
+        validators=[Length(max=200)]
     )

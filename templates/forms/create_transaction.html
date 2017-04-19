@@ -1,0 +1,10 @@
+{% extends 'layouts/form.html' %}
+{% block title %}Transaktion erstellen{% endblock %}
+{% block content %}
+	<form method="post" class="form">
+		{{ form.user(class_ = 'form-control', placeholder = form.user.label.text, required = true) }}
+		{{ form.amount(class_ = 'form-control', placeholder = form.amount.label.text, required = true) }}
+		{{ form.description(class_ = 'form-control', placeholder = form.description.label.text, required = false) }}
+		<input type="submit" value="Submit" class="btn btn-primary btn-lg btn-block" disabled>
+	</form>
+{% endblock %}
