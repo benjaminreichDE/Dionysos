@@ -20,3 +20,5 @@ install:
 script: 
   - pip install -U pytest
   - pytest
+after_success:
+  - coveralls
