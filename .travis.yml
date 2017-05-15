@@ -1,24 +1,23 @@
 language: python
 python:
-  - "2.6"
-  - "2.7"
-  # - "3.2"
-  - "3.3"
-  - "3.4"
-  - "3.5"
-  - "3.5-dev" # 3.5 development branch
-  - "3.6"
-  - "3.6-dev" # 3.6 development branch
-  - "3.7-dev" # 3.7 development branch
-  - "nightly" # currently points to 3.7-dev
-  
-# command to install dependencies
-install: 
-  - pip install -r requirements.txt
-  - pip install coveralls
-# command to run tests
-script: 
-  - pip install -U pytest
-  - pytest
+- '2.6'
+- '2.7'
+- '3.3'
+- '3.4'
+- '3.5'
+- 3.5-dev
+- '3.6'
+- 3.6-dev
+- 3.7-dev
+- nightly
+install:
+- pip install -r requirements.txt
+- pip install coveralls
+script:
+- pip install -U pytest
+- pytest
 after_success:
-  - coveralls
+- coveralls
+notifications:
+  slack:
+    secure: CQh7SjtFRZJs7pspvbniLBZ8WE2H3RFWWrLm4ZMhpu8C0weks/L6SwITeBy+fy6h7qINxqu8JSEfW2Cb9wFRiwEe3U+3yC31lFYLxNaRPnNU4cu1AfYlhIyOeSoTwHaEZ+brvJLC5yAUgsTXaHl17I0nVfGfDXndGqXCelOCbXGjWJ6kH7dp3d8tGrIGvdZbyKBcttT0cajbDF6kII87IIwlW1rlyzRLtbUvHtvigpNxhVQaStGNvuk6U8OYQqZZU/QtZCrrVNG8kqfY4XFtxx+tisZKzuF+Z0joc1r63PuZpLV2EOE+7EdrbuRNjgIgmzA5RZQXyrcCaNvOsXbkcBgiUim5lBB+8ivmiZLcG1NFgpkgufj9O5Sjw9flHnx92ENWBZAb6kdEAo42aNvO+wbBGlbCPq/MJCs8K5XbFLLl9425cN5hkQWXoRmBXBEn8cut7vlybi6dyvfjOliQQut71J4REcuCBu46D2kQrS3XD2nz4eI39EP+2BcBMDHab63lyklTTYM3GamFC3burwG85+nTeOgJ8pUSqi30WDblysSbtKp6XTR6RL20kdw5u8iePgKzlD1o5zr7XO3y0QSPRbIluvJ1K6OaAN9oWUvU0ZquYL2BW6H7+07CaCub/U7VROXbURwIEnLe0dIN9nyswqUFchzEUpg37qT++TI=
