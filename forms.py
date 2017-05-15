@@ -6,8 +6,9 @@ import models
 
 # Set your classes here.
 
+from flask_wtf import FlaskForm
 
-class RegisterForm(Form):
+class RegisterForm(FlaskForm):
     name = StringField(
         'Username', validators=[DataRequired(), Length(min=6, max=25)]
     )
@@ -24,18 +25,18 @@ class RegisterForm(Form):
     )
 
 
-class LoginForm(Form):
+class LoginForm(FlaskForm):
     name = StringField('Username', [DataRequired()])
     password = PasswordField('Password', [DataRequired()])
 
 
-class ForgotForm(Form):
+class ForgotForm(FlaskForm):
     email = StringField(
         'Email', validators=[DataRequired(), Length(min=6, max=40)]
     )
 
 
-class CreateTransaction(Form):
+class CreateTransaction(FlaskForm):
     user = SelectField(
         'Username',
         validators=[DataRequired()],
