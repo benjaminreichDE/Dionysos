@@ -2,7 +2,7 @@
 # Imports
 #----------------------------------------------------------------------------#
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import logging
 from logging import Formatter, FileHandler
 import models
@@ -105,7 +105,17 @@ def transactions():
 @app.route('/transactions/create')
 def create_transaction():
     form = CreateTransaction(request.form)
-    return render_template('forms/create_transaction.html', form=form)
+
+    if request.method == 'POST':
+        if form.validate():
+            newTransaction = models.Transaction(form.amount, form.user, form.description)
+            session.add(newTransaction)
+            session.commit()
+            return redirect(url_for('transactions'), code=302)
+        else:
+            render_template('forms/create_transaction.html', form=form, error="The provided data is not valid.")  # TODO: better error message
+    else:
+        return render_template('forms/create_transaction.html', form=form)
 
 # Error handlers.
 
