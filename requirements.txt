@@ -1,6 +1,6 @@
 Fabric3==1.13.1.post1
 Flask==0.12.2
-Flask-SQLAlchemy==2.3.0
+Flask-SQLAlchemy==2.3.2
 Flask-WTF==0.14.2
 Jinja2==2.9.6
 MarkupSafe==1.0
@@ -13,8 +13,8 @@ gunicorn==19.7.1
 itsdangerous==0.24
 paramiko==2.3.1
 pycrypto==2.6.1
-bcrypt==3.1.3
-pytz==2017.2
+bcrypt==3.1.4
+pytz==2017.3
 tzlocal==1.4
 pytest-flask==0.10.0
 click==6.7
