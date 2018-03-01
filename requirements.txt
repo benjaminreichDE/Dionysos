@@ -1,6 +1,6 @@
 Fabric3==1.14.post1
 Flask==0.12.2
-Flask-SQLAlchemy==2.3.0
+Flask-SQLAlchemy==2.3.2
 Flask-WTF==0.14.2
 Jinja2==2.9.6
 MarkupSafe==1.0
