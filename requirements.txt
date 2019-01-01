@@ -17,4 +17,4 @@ bcrypt==3.1.5
 pytz==2018.7
 tzlocal==1.5.1
 pytest-flask==0.14.0
-click==6.7
+click==7.0
